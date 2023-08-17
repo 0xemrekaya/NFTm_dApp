@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +15,7 @@ class SplashPage extends StatelessWidget {
         child: AnimatedTextKit(
           totalRepeatCount: 1,
           onFinished: () {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainScreen()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainScreen()));
           },
           animatedTexts: [
             WavyAnimatedText(
