@@ -5,7 +5,7 @@ import 'package:web3_wallet_flutter/screens/splash_page.dart';
 
 import 'screens/main_screen.dart';
 
-void main() async{
+void main() async {
   await dotenv.load(fileName: ".env");
   runApp(const ProviderScope(child: MainApp()));
 }
@@ -16,6 +16,17 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light(
+        useMaterial3: true,
+      ).copyWith(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       routes: {
         MainScreen.id: (context) => MainScreen(),
@@ -24,5 +35,3 @@ class MainApp extends StatelessWidget {
     );
   }
 }
-
-

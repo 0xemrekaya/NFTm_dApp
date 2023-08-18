@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hex/hex.dart';
@@ -18,11 +19,12 @@ class MainScreen extends ConsumerStatefulWidget {
 }
 
 class _MainScreenState extends ConsumerState<MainScreen> {
-  final String title = "Create a Web3 Wallet for App.";
+  final String title = "You don't have a wallet yet.";
+  final String subtitle = "Create a Web3 wallet for App.";
+  final String subtitle2 = "or import your wallet.";
   final rpcUrl = dotenv.env['SEPOLIA_RPC_URL'];
   late Client httpClient;
   late Web3Client ethClient;
-  WalletModel? walletModel;
 
   @override
   void initState() {
@@ -47,15 +49,27 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.black);
+    final textStyle = Theme.of(context).textTheme;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Center(
-            child: Text(
-              title,
-              style: textStyle,
+            child: Column(
+              children: [
+                Text(
+                  title,
+                  style: textStyle.headlineMedium,
+                ),
+                Text(
+                  subtitle,
+                  style: textStyle.headlineSmall,
+                ),
+                Text(
+                  subtitle2,
+                  style: textStyle.headlineSmall,
+                ),
+              ],
             ),
           ),
           Column(
@@ -68,14 +82,52 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               const SizedBox(
                 height: 20,
               ),
-              Text(
-                ref.watch(walletProvider).walletAddress ?? "",
-                style: textStyle.copyWith(fontSize: 15),
-              )
+              copy(context, textStyle, ref.watch(walletProvider).walletAddress, "Wallet address"),
+              const SizedBox(
+                height: 20,
+              ),
+              copy(context, textStyle, ref.watch(walletProvider).privateKey, "Private key"),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  Stack copy(BuildContext context, TextTheme textStyle, String copyText, String text) {
+    final stars = '*' * (copyText.length );
+    return Stack(
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height * 0.1,
+          width: MediaQuery.of(context).size.width * 0.9,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.black12,
+          ),
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Text(
+              text == "Private key" ? stars : copyText,
+              style: textStyle.labelLarge!,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: TextButton(
+            onPressed: () async {
+              await Clipboard.setData(ClipboardData(text: copyText));
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("$text copied to clipboard")),
+              );
+            },
+            child: Text("Copy of $text"),
+          ),
+        ),
+      ],
     );
   }
 }
