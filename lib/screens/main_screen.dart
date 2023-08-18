@@ -1,12 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:bip39/bip39.dart' as bip39;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hex/hex.dart';
 import 'package:http/http.dart';
+import 'package:web3_wallet_flutter/provider/wallet_provider.dart';
 import 'package:web3dart/web3dart.dart';
-import '../provider/wallet_provider.dart';
+
+import '../model/wallet_model.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
   MainScreen({super.key});
@@ -18,11 +19,10 @@ class MainScreen extends ConsumerStatefulWidget {
 
 class _MainScreenState extends ConsumerState<MainScreen> {
   final String title = "Create a Web3 Wallet for App.";
-
   final rpcUrl = dotenv.env['SEPOLIA_RPC_URL'];
   late Client httpClient;
   late Web3Client ethClient;
-  String? walletAddress;
+  WalletModel? walletModel;
 
   @override
   void initState() {
@@ -40,9 +40,9 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   void generateWallet() {
     final wallet = EthPrivateKey.createRandom(Random.secure());
-    final a = HEX.encode(wallet.privateKey);
-    ref.watch(walletProvider.notifier).setWalletAddress(wallet.address.hex.toString());
-    walletAddress = wallet.address.hex.toString();
+    final privateKey = HEX.encode(wallet.privateKey);
+    final walletNotifier = ref.read(walletProvider.notifier);
+    walletNotifier.setWallet(WalletModel(walletAddress: wallet.address.hex.toString(), privateKey: privateKey));
   }
 
   @override
@@ -69,7 +69,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 height: 20,
               ),
               Text(
-                ref.watch(walletProvider) ?? "",
+                ref.watch(walletProvider).walletAddress ?? "",
                 style: textStyle.copyWith(fontSize: 15),
               )
             ],
