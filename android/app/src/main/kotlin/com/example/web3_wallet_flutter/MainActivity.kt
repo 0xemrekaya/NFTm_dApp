@@ -1,4 +1,4 @@
-package com.example.web3_wallet_flutter
+package com.example.nftm_dapp
 
 import io.flutter.embedding.android.FlutterActivity
 

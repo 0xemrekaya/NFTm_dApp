@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:web3_wallet_flutter/screens/splash_page.dart';
+import 'package:nftm_dapp/screens/splash_page.dart';
 
 import 'screens/main_screen.dart';
 

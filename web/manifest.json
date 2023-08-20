@@ -1,6 +1,6 @@
 {
-    "name": "web3_wallet_flutter",
-    "short_name": "web3_wallet_flutter",
+    "name": "nftm_dapp",
+    "short_name": "nftm_dapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

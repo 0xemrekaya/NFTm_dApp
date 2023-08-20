@@ -5,7 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hex/hex.dart';
 import 'package:http/http.dart';
-import 'package:web3_wallet_flutter/provider/wallet_provider.dart';
+import 'package:nftm_dapp/provider/wallet_provider.dart';
 import 'package:web3dart/web3dart.dart';
 
 import '../model/wallet_model.dart';
