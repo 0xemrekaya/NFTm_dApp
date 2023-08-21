@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nftm_dapp/screens/nft_main_screen.dart';
 import 'package:nftm_dapp/screens/splash_page.dart';
 
 import 'screens/main_screen.dart';
@@ -30,6 +31,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         MainScreen.id: (context) => MainScreen(),
+        NftMainScreen.id: (context) => NftMainScreen(),
       },
       home: const SplashPage(),
     );

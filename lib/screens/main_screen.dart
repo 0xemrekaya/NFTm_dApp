@@ -9,6 +9,7 @@ import 'package:nftm_dapp/provider/wallet_provider.dart';
 import 'package:web3dart/web3dart.dart';
 
 import '../model/wallet_model.dart';
+import 'nft_main_screen.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
   MainScreen({super.key});
@@ -49,6 +50,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceWidth = MediaQuery.of(context).size.width;
     final textStyle = Theme.of(context).textTheme;
     return Scaffold(
       body: Column(
@@ -78,24 +81,35 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                   onPressed: () {
                     generateWallet();
                   },
-                  child: const Text("Generate a wallet")),
-              const SizedBox(
-                height: 20,
+                  child: const Text("Generate a web3 wallet")),
+              SizedBox(
+                height: deviceHeight / 50,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    generateWallet();
+                  },
+                  child: const Text("Import your web3 wallet")),
+              SizedBox(
+                height: deviceHeight / 30,
               ),
               copy(context, textStyle, ref.watch(walletProvider).walletAddress, "Wallet address"),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: deviceHeight / 50,
               ),
               copy(context, textStyle, ref.watch(walletProvider).privateKey, "Private key"),
             ],
           ),
+          IconButton.filled(onPressed: () {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NftMainScreen()));
+          }, icon: const Icon(Icons.navigate_next_rounded))
         ],
       ),
     );
   }
 
   Stack copy(BuildContext context, TextTheme textStyle, String copyText, String text) {
-    final stars = '*' * (copyText.length );
+    final stars = '*' * (copyText.length);
     return Stack(
       children: [
         Container(
