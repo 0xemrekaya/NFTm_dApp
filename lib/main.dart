@@ -37,7 +37,7 @@ class MainApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        MainScreen.id: (context) => MainScreen(),
+        //MainScreen.id: (context) => MainScreen(),
         NftMainScreen.id: (context) => NftMainScreen(),
         ImportWallet.id:(context) =>  ImportWallet(),
       },

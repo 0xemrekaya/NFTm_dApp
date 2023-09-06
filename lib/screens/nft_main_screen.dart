@@ -50,12 +50,9 @@ class _NftMainScreenState extends ConsumerState<NftMainScreen> {
                 children: [
                   ElevatedButton(
                     onPressed: () async {
-                      final result = await FilePicker.platform.pickFiles();
-                      if (result != null) {
-                        final filePath = result.files.single.path!;
-                        final hash = await addFileToIPFS(filePath);
+                        final hash = await addFileToIPFS(filePath!.path);
                         print('File uploaded to IPFS with hash: $hash');
-                      }
+                      
                     },
                     child: const Text(
                       'Create NFT',
@@ -111,18 +108,18 @@ class _NftMainScreenState extends ConsumerState<NftMainScreen> {
 
   Future<void> imgFromGallery() async {
     final pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
-    selectedFileBytes = await pickedFile?.readAsBytes();
-    setState(() {
+    setState(() async{
       if (pickedFile != null) {
         filePath = File(pickedFile.path);
+        selectedFileBytes = await pickedFile.readAsBytes();
       } else {
-        const AlertDialog(
-          title: Text('No image selected.'),
-          icon: Icon(Icons.add_alert_sharp),
-        );
+        print('No image selected.');
       }
     });
   }
+          // const AlertDialog(
+          // title: Text('No image selected.'),
+          // icon: Icon(Icons.add_alert_sharp),
 
   Future<String> addFileToIPFS(String filePath) async {
     final url = Uri.parse('https://ipfs.infura.io:5001/api/v0/add');
