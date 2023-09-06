@@ -25,6 +25,9 @@ dependencies:
   # UI
   animated_text_kit: ^4.2.2
 
+  # FIREBASE
+  firebase_core: ^2.15.1
+
 
 dev_dependencies:
   flutter_test:
