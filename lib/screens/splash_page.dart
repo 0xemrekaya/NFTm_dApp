@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
-import 'main_screen_v2.dart';
+import 'main_screen.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});

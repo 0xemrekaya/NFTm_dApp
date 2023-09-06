@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>68493765140-8j57qi58nl8d9pdmobskcrav6597349g.apps.googleusercontent.com</string>
+	<string>68493765140-r5cg9q655qa2bq0qm10hncmdkt8q7hl3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.68493765140-8j57qi58nl8d9pdmobskcrav6597349g</string>
+	<string>com.googleusercontent.apps.68493765140-r5cg9q655qa2bq0qm10hncmdkt8q7hl3</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCg5TdeHAUTfz7NU7pUwMHgBXp96Rh8YhI</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.web3WalletFlutter</string>
+	<string>com.example.nftmdapp</string>
 	<key>PROJECT_ID</key>
 	<string>nftm-24f9c</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:68493765140:ios:818b516cc8a75e27c81501</string>
+	<string>1:68493765140:ios:c14816c5b791ef38c81501</string>
 </dict>
 </plist>

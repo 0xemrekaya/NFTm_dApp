@@ -48,17 +48,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyC_apH5b5apo4p7FnSGtxcUUtQHEpxu3dI',
-    appId: '1:68493765140:web:23e262b8a1fbf880c81501',
+    appId: '1:68493765140:web:589698370c2f3c77c81501',
     messagingSenderId: '68493765140',
     projectId: 'nftm-24f9c',
     authDomain: 'nftm-24f9c.firebaseapp.com',
     storageBucket: 'nftm-24f9c.appspot.com',
-    measurementId: 'G-FFY8EF817Y',
+    measurementId: 'G-36QPL1SRDK',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDUrQdWn-7c2SZnWzQhbFubM994lID9Vb0',
-    appId: '1:68493765140:android:d53dcf125328d0a1c81501',
+    appId: '1:68493765140:android:96170a580d873f5bc81501',
     messagingSenderId: '68493765140',
     projectId: 'nftm-24f9c',
     storageBucket: 'nftm-24f9c.appspot.com',
@@ -66,7 +66,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCg5TdeHAUTfz7NU7pUwMHgBXp96Rh8YhI',
-    appId: '1:68493765140:ios:bb82f944f9882822c81501',
+    appId: '1:68493765140:ios:c14816c5b791ef38c81501',
     messagingSenderId: '68493765140',
     projectId: 'nftm-24f9c',
     storageBucket: 'nftm-24f9c.appspot.com',
