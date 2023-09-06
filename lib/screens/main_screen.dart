@@ -9,6 +9,7 @@ import 'package:nftm_dapp/provider/wallet_provider.dart';
 import 'package:web3dart/web3dart.dart';
 
 import '../model/wallet_model.dart';
+import 'import_wallet.dart';
 import 'nft_main_screen.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
@@ -42,6 +43,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   }
 
   void generateWallet() {
+    Credentials credentials;
     final wallet = EthPrivateKey.createRandom(Random.secure());
     final privateKey = HEX.encode(wallet.privateKey);
     final walletNotifier = ref.read(walletProvider.notifier);
@@ -87,7 +89,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    generateWallet();
+                    Navigator.pushNamed(context, ImportWallet.id);
                   },
                   child: const Text("Import your web3 wallet")),
               SizedBox(
@@ -102,7 +104,9 @@ class _MainScreenState extends ConsumerState<MainScreen> {
           ),
           IconButton.filled(onPressed: () {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NftMainScreen()));
-          }, icon: const Icon(Icons.navigate_next_rounded))
+          
+          }
+          , icon: const Icon(Icons.navigate_next_rounded))
         ],
       ),
     );

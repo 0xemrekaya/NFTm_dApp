@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nftm_dapp/screens/nft_main_screen.dart';
 import 'package:nftm_dapp/screens/splash_page.dart';
 
+import 'screens/import_wallet.dart';
 import 'screens/main_screen.dart';
 
 void main() async {
@@ -32,6 +33,7 @@ class MainApp extends StatelessWidget {
       routes: {
         MainScreen.id: (context) => MainScreen(),
         NftMainScreen.id: (context) => NftMainScreen(),
+        ImportWallet.id:(context) =>  ImportWallet(),
       },
       home: const SplashPage(),
     );
