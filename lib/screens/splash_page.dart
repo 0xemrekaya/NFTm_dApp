@@ -5,7 +5,7 @@ import 'main_screen_v2.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
-  final String title = "NFTm Dapp";
+  final String title = "NFTm dApp";
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme.headlineLarge!.copyWith(color: Colors.white);

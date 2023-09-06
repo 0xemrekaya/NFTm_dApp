@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>68493765140-8j57qi58nl8d9pdmobskcrav6597349g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.68493765140-8j57qi58nl8d9pdmobskcrav6597349g</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCg5TdeHAUTfz7NU7pUwMHgBXp96Rh8YhI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>68493765140</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.web3WalletFlutter</string>
+	<key>PROJECT_ID</key>
+	<string>nftm-24f9c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nftm-24f9c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:68493765140:ios:818b516cc8a75e27c81501</string>
+</dict>
+</plist>

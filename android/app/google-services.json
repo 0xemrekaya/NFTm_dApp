@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "68493765140",
+    "project_id": "nftm-24f9c",
+    "storage_bucket": "nftm-24f9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68493765140:android:d53dcf125328d0a1c81501",
+        "android_client_info": {
+          "package_name": "com.example.nftm_dapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68493765140-jg4grgu6pnk1ef0fma8mfj3a8diq2rvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUrQdWn-7c2SZnWzQhbFubM994lID9Vb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68493765140-jg4grgu6pnk1ef0fma8mfj3a8diq2rvq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "68493765140-8j57qi58nl8d9pdmobskcrav6597349g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.web3WalletFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

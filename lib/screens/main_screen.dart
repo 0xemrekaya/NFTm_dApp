@@ -8,8 +8,9 @@
 // import 'package:nftm_dapp/provider/wallet_provider.dart';
 // import 'package:web3dart/web3dart.dart';
 
-// import '../model/wallet_model.dart';
-// import 'nft_main_screen.dart';
+import '../model/wallet_model.dart';
+import 'import_wallet.dart';
+import 'nft_main_screen.dart';
 
 // class MainScreen extends ConsumerStatefulWidget {
 //   MainScreen({super.key});
@@ -41,73 +42,75 @@
 //     );
 //   }
 
-//   void generateWallet() {
-//     final wallet = EthPrivateKey.createRandom(Random.secure());
-//     print(wallet.privateKey); 
-//     final privateKey = HEX.encode(wallet.privateKey);
-//     final walletNotifier = ref.read(walletProvider.notifier);
-//     walletNotifier.setWallet(WalletModel(walletAddress: wallet.address.hex.toString(), privateKey: privateKey));
-//   }
+  void generateWallet() {
+    Credentials credentials;
+    final wallet = EthPrivateKey.createRandom(Random.secure());
+    final privateKey = HEX.encode(wallet.privateKey);
+    final walletNotifier = ref.read(walletProvider.notifier);
+    walletNotifier.setWallet(WalletModel(walletAddress: wallet.address.hex.toString(), privateKey: privateKey));
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     final deviceHeight = MediaQuery.of(context).size.height;
-//     final deviceWidth = MediaQuery.of(context).size.width;
-//     final textStyle = Theme.of(context).textTheme;
-//     return Scaffold(
-//       body: Column(
-//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//         children: [
-//           Center(
-//             child: Column(
-//               children: [
-//                 Text(
-//                   title,
-//                   style: textStyle.headlineMedium,
-//                 ),
-//                 Text(
-//                   subtitle,
-//                   style: textStyle.headlineSmall,
-//                 ),
-//                 Text(
-//                   subtitle2,
-//                   style: textStyle.headlineSmall,
-//                 ),
-//               ],
-//             ),
-//           ),
-//           Column(
-//             children: [
-//               ElevatedButton(
-//                   onPressed: () {
-//                     generateWallet();
-//                   },
-//                   child: const Text("Generate a web3 wallet")),
-//               SizedBox(
-//                 height: deviceHeight / 50,
-//               ),
-//               ElevatedButton(
-//                   onPressed: () {
-//                     generateWallet();
-//                   },
-//                   child: const Text("Import your web3 wallet")),
-//               SizedBox(
-//                 height: deviceHeight / 30,
-//               ),
-//               copy(context, textStyle, ref.watch(walletProvider).walletAddress, "Wallet address"),
-//               SizedBox(
-//                 height: deviceHeight / 50,
-//               ),
-//               copy(context, textStyle, ref.watch(walletProvider).privateKey, "Private key"),
-//             ],
-//           ),
-//           IconButton.filled(onPressed: () {
-//             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NftMainScreen()));
-//           }, icon: const Icon(Icons.navigate_next_rounded))
-//         ],
-//       ),
-//     );
-//   }
+  @override
+  Widget build(BuildContext context) {
+    final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceWidth = MediaQuery.of(context).size.width;
+    final textStyle = Theme.of(context).textTheme;
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Center(
+            child: Column(
+              children: [
+                Text(
+                  title,
+                  style: textStyle.headlineMedium,
+                ),
+                Text(
+                  subtitle,
+                  style: textStyle.headlineSmall,
+                ),
+                Text(
+                  subtitle2,
+                  style: textStyle.headlineSmall,
+                ),
+              ],
+            ),
+          ),
+          Column(
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    generateWallet();
+                  },
+                  child: const Text("Generate a web3 wallet")),
+              SizedBox(
+                height: deviceHeight / 50,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, ImportWallet.id);
+                  },
+                  child: const Text("Import your web3 wallet")),
+              SizedBox(
+                height: deviceHeight / 30,
+              ),
+              copy(context, textStyle, ref.watch(walletProvider).walletAddress, "Wallet address"),
+              SizedBox(
+                height: deviceHeight / 50,
+              ),
+              copy(context, textStyle, ref.watch(walletProvider).privateKey, "Private key"),
+            ],
+          ),
+          IconButton.filled(onPressed: () {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NftMainScreen()));
+          
+          }
+          , icon: const Icon(Icons.navigate_next_rounded))
+        ],
+      ),
+    );
+  }
 
 //   Stack copy(BuildContext context, TextTheme textStyle, String copyText, String text) {
 //     final stars = '*' * (copyText.length);
